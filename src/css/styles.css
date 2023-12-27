@@ -61,7 +61,7 @@ button[data-start]:disabled {
   background: #CFCFCF;
 }
 
-button[data-start]:hover, button:focus {
+button[data-start]:hover, button[data-start]:focus {
   color: #FFF;
   background: #6C8CFF;
   outline: transparent;
@@ -94,4 +94,71 @@ button[data-start]:hover, button:focus {
   font-family: Montserrat;
   font-size: 16px;
   line-height: 1.5; 
+}
+
+/* ========================= Task 2 ========================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  color: #2E2F42;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.64px;
+}
+
+input[name="delay"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+
+  width: 360px;
+  height: 40px;
+
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+input[name="delay"]:hover {
+  border: 1px solid #000;
+}
+
+input[name="delay"]:focus {
+  border: 1px solid #4E75FF;
+  outline: transparent;
+}
+
+.form fieldset {
+  width: 360px;
+  height: 64px;
+  flex-shrink: 0;
+
+  border: 1px solid #808080;
+  border-radius: 4px;
+}
+
+.form fieldset:hover{
+  border: 1px solid #000;
+}
+
+
+button[type="submit"] {
+  display: flex;
+  width: 360px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  outline: transparent;
+  border-radius: 8px;
+  background: #4E75FF;
+}
+
+button[type="submit"]:hover {
+  background: #6C8CFF;
 }

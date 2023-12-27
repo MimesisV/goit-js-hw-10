@@ -10,12 +10,13 @@ button.addEventListener("click", (event)=>{
     const checkedRadioButtons = Array.from(radioButtons).find(input => input.checked);
     const inputValue = input.value;
 
-    if (inputValue < 0) {
+    if (inputValue <= 0) {
         iziToast.show({
             message: 'Please enter a valid delay in milliseconds.',
             position: "topRight",
             color: "red"
         });
+        return;
     }
 
     const promise = new Promise((resolve, reject) => {
