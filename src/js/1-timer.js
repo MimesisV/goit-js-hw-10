@@ -41,11 +41,12 @@ button.addEventListener("click", () => {
   let countdownInterval = setInterval (() => {
     let different = selectedDate - new Date().getTime();
     let time = convertMs(different);
+    let {days, hours, minutes, seconds} = time;
 
-    daysElement.textContent = `${addLeadingZero(time.days)}`
-    hoursElement.textContent = `${addLeadingZero(time.hours)}`
-    minutesElement.textContent = `${addLeadingZero(time.minutes)}`
-    secondsElement.textContent = `${addLeadingZero(time.seconds)}`
+    daysElement.textContent = `${addLeadingZero(days)}`
+    hoursElement.textContent = `${addLeadingZero(hours)}`
+    minutesElement.textContent = `${addLeadingZero(minutes)}`
+    secondsElement.textContent = `${addLeadingZero(seconds)}`
 
     different -= 1000;
 
