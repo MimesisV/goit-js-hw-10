@@ -36,6 +36,7 @@ const options = {
 const dataPicker = flatpickr(userDate, options);
 
 button.addEventListener("click", () => {
+  button.disabled = true; 
   let countdownInterval = setInterval (() => {
     let different = selectedDate - new Date().getTime();
     let time = convertMs(different);

@@ -1,20 +1,19 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css"
 
-const input = document.querySelector('input[name="delay"]');
-const button = document.querySelector('button');
+const delayInput = document.querySelector('input[name="delay"]');
+const form = document.querySelector('form');
 
-button.addEventListener("click", (event)=>{
-    event.preventDefault();   
-    const radioButtons = document.querySelectorAll('input[name="state"]');
-    const checkedRadioButtons = Array.from(radioButtons).find(input => input.checked);
-    const inputValue = input.value;
+form.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    
+    const checkedRadioButtons = document.querySelector('input[name="state"]:checked');
+    const inputValue = delayInput.value;
 
     if (inputValue <= 0) {
-        iziToast.show({
+        iziToast.error({
             message: 'Please enter a valid delay in milliseconds.',
             position: "topRight",
-            color: "red"
         });
         return;
     }
@@ -34,14 +33,12 @@ button.addEventListener("click", (event)=>{
             iziToast.show({
                 message: `✅ Fulfilled promise in ${delay}ms`,
                 position: "topRight",
-                color: "green"
             });
         })
         .catch((delay) => {
-            iziToast.show({
+            iziToast.error({
                 message: `❌ Rejected promise in ${delay}ms`,
                 position: "topRight",
-                color: "red"
             });
         })
 })
