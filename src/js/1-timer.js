@@ -11,7 +11,7 @@ const minutesElement = document.querySelector("[data-minutes]");
 const secondsElement = document.querySelector("[data-seconds]");
 
 let selectedDate;
-button.disabled = true; 
+button.disabled = true;
 
 const options = {
   enableTime: true,
@@ -35,7 +35,8 @@ const options = {
 const dataPicker = flatpickr(userDate, options);
 
 button.addEventListener("click", () => {
-  button.disabled = true; 
+  button.disabled = true;
+  userDate.disabled = true;
   
   let countdownInterval = setInterval (() => {
     let different = selectedDate - new Date().getTime();
@@ -51,6 +52,7 @@ button.addEventListener("click", () => {
     if (different <= 0) {
       clearInterval(countdownInterval);
       button.disabled = false;
+      userDate.disabled = false;
     }
   }, 1000);
 })
