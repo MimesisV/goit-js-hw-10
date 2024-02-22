@@ -32,15 +32,15 @@ const options = {
   },  
 };
 
-const dataPicker = flatpickr(userDate, options);
+const datePicker = flatpickr(userDate, options);
 
 button.addEventListener("click", () => {
   button.disabled = true;
   userDate.disabled = true;
   
   let countdownInterval = setInterval (() => {
-    let different = selectedDate - new Date().getTime();
-    let time = convertMs(different);
+    let timeDifference = selectedDate - new Date().getTime();
+    let time = convertMs(timeDifference);
     let {days, hours, minutes, seconds} = time;
 
     daysElement.textContent = `${addLeadingZero(days)}`
@@ -48,11 +48,10 @@ button.addEventListener("click", () => {
     minutesElement.textContent = `${addLeadingZero(minutes)}`
     secondsElement.textContent = `${addLeadingZero(seconds)}`
 
-    different -= 1000;
+    timeDifference -= 1000;
 
-    if (different <= 0) {
+    if (timeDifference <= 0) {
       clearInterval(countdownInterval);
-      button.disabled = false;
       userDate.disabled = false;
     }
   }, 1000);
